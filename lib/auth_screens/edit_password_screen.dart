@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
-import '../global_widgets/colored_text_button.dart';
 import '../global_widgets/decorated_text_field.dart';
 import '../utils/colors.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class EditPasswordScreen extends StatefulWidget {
+  const EditPasswordScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<EditPasswordScreen> createState() => _EditPasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController emailController = TextEditingController();
+class _EditPasswordScreenState extends State<EditPasswordScreen> {
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -34,35 +33,30 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               const Center(
-                  child: Text('Log In', style: TextStyle(fontSize: 30))),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+                  child: Text('Edit Password', style: TextStyle(fontSize: 26))),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.10),
               DecoratedTextField(
-                  label: 'Email',
-                  hint: 'SomeOne@email.com',
-                  isObsecure: false,
-                  controller: emailController,
-                  validator: (value) =>
-                      value!.isEmpty ? 'Please Enter a valid email' : null),
-              DecoratedTextField(
-                  label: 'Password',
+                  label: 'New Password',
                   hint: '********',
                   isObsecure: true,
                   controller: passwordController,
                   validator: (value) =>
                       value!.isEmpty ? 'Please Enter a password' : null),
-              const SizedBox(height: 10),
-              ColoredTextButton(text: 'Forgot Password?', onPressed: () {}),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.12),
+              DecoratedTextField(
+                  label: 'Retype Password',
+                  hint: '********',
+                  isObsecure: true,
+                  controller: passwordConfirmController,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please Enter a password' : null),
+              const SizedBox(height: 30),
               ColoredButton(
                   color: mainColor,
-                  text: 'Log in',
+                  text: 'Save',
                   onPressed: () {
                     _formKey.currentState!.validate();
                   }),
-              const SizedBox(height: 10),
-              ColoredButton(
-                  color: contrastColor, text: 'Register', onPressed: () {}),
-              const SizedBox(height: 30),
+              const SizedBox(height: 40),
             ],
           ),
         ),
