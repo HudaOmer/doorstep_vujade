@@ -3,8 +3,8 @@ import '../global_widgets/custom_appbar.dart';
 import '../utils/colors.dart';
 import '../utils/icon.dart';
 
-class FertilizationScreen extends StatelessWidget {
-  const FertilizationScreen({super.key});
+class ApartmentDetailScreen extends StatelessWidget {
+  const ApartmentDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,78 +13,34 @@ class FertilizationScreen extends StatelessWidget {
       appBar: CustomAppBar(
         color: Colors.black26,
         image: notifications.mode[0],
+        arrowColor: mainColor,
+        actions: [
+          Icon(Icons.favorite_outline, color: mainColor),
+          const SizedBox(width: 5),
+          Icon(Icons.bookmark_border, color: mainColor),
+          const SizedBox(width: 25),
+        ],
         body: [
           const Center(
-            child: Text('Fertilization History',
+            child: Text('',
                 style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
                     fontWeight: FontWeight.w700)),
           ),
           const SizedBox(height: 80),
-          Container(
-            height: 20,
-            decoration: BoxDecoration(
-                color: contrastColor,
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(30))),
-          )
+          Container(height: 20)
         ],
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: contrastColor,
+          color: Colors.white,
           child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text('Date',
-                          style:
-                              TextStyle(color: mediumGreyColor, fontSize: 11)),
-                      Text('Fertilizer Type',
-                          style:
-                              TextStyle(color: mediumGreyColor, fontSize: 11)),
-                      Text('Space',
-                          style:
-                              TextStyle(color: mediumGreyColor, fontSize: 11)),
-                    ],
-                  ),
-                  Container(
-                      height: 0.5,
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      margin: const EdgeInsets.only(top: 10, bottom: 10),
-                      color: Colors.grey),
-                  const RowItem(),
-                  const RowItem(),
-                  const RowItem(),
-                  const RowItem()
-                ],
+                children: const [Center()],
               )),
         ),
-      ),
-    );
-  }
-}
-
-class RowItem extends StatelessWidget {
-  const RowItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(15.0),
-      width: MediaQuery.of(context).size.width * 0.8,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text('1/1/2025',
-              style: TextStyle(color: mediumGreyColor, fontSize: 11)),
-          Text('A', style: TextStyle(color: mediumGreyColor, fontSize: 11)),
-          Text('100m2', style: TextStyle(color: mediumGreyColor, fontSize: 11)),
-        ],
       ),
     );
   }

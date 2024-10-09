@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import '../utils/colors.dart';
 import 'custom_icon.dart';
 
 class LocationItem extends StatelessWidget {
   final String location;
-  const LocationItem({super.key, required this.location});
+  final Color color;
+  const LocationItem(
+      {super.key,
+      required this.location,
+      this.color = const Color.fromARGB(255, 254, 137, 23)});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.location_on_outlined, color: mainColor),
+        Icon(Icons.location_on_outlined, color: color),
         const SizedBox(width: 10),
-        Text(location, style: TextStyle(color: mainColor)),
+        Text(location, style: TextStyle(color: color)),
         const SizedBox(width: 20),
       ],
     );
@@ -21,7 +24,10 @@ class LocationItem extends StatelessWidget {
 
 class ApatrmentItem extends StatelessWidget {
   final bool isWide;
-  const ApatrmentItem({super.key, required this.isWide});
+  const ApatrmentItem({
+    super.key,
+    required this.isWide,
+  });
 
   @override
   Widget build(BuildContext context) {

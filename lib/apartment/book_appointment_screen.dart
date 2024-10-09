@@ -1,3 +1,4 @@
+import 'package:doorstep_vujade/global_widgets/apartment_item.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../global_widgets/custom_appbar.dart';
@@ -26,7 +27,7 @@ class BookAppointmentScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600)),
                     ],
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: const [
@@ -39,7 +40,7 @@ class BookAppointmentScreen extends StatelessWidget {
                       WeekdayDateWidget(day: 'sat', date: '9', isToday: false),
                     ],
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                 ],
               )
             ]),
@@ -50,15 +51,37 @@ class BookAppointmentScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 5),
-                  Row(
-                    children: [
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.05),
-                      const Text('Al Rayyan',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w700)),
-                    ],
+                  const SizedBox(height: 30),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Al Rayyan',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w700)),
+                        const SizedBox(height: 10),
+                        Text('5,000 SAR',
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: mainColor)),
+                        const SizedBox(height: 10),
+                        Container(
+                            height: 40,
+                            width: 120,
+                            padding: const EdgeInsets.only(left: 10),
+                            decoration: BoxDecoration(
+                                color: contrastColor,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: const Center(
+                              child: LocationItem(
+                                  location: 'Riyadh', color: Colors.white),
+                            )),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 20),
                   const SizedBox(height: 10),

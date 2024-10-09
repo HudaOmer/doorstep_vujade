@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../apartment/apartment_detail_screen.dart';
 import '../apartment/book_appointment_screen.dart';
 import '../global_widgets/custom_icon.dart';
 import '../utils/icon.dart';
@@ -22,7 +23,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
     SearchFilterScreen(),
     SearchResultsScreen(),
     BookAppointmentScreen(),
-    HomePage(),
+    ApartmentDetailScreen(),
   ];
 
   @override

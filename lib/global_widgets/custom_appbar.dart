@@ -6,6 +6,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final List<Widget>? body;
   final String? image;
+  final Color arrowColor;
 
   const CustomAppBar({
     super.key,
@@ -14,6 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title = '',
     this.body = const [],
     this.image = '',
+    this.arrowColor = Colors.white,
   });
 
   @override
@@ -37,7 +39,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             : null,
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
-        leading: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        leading: Icon(Icons.arrow_back_ios, color: arrowColor),
         actions: actions,
         flexibleSpace: Center(
           child: Column(
