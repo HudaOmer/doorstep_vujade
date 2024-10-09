@@ -5,6 +5,7 @@ import 'auth_screens/login_screen.dart';
 import 'auth_screens/otp_screen.dart';
 import 'auth_screens/register_screen.dart';
 import 'auth_screens/verification_screen.dart';
+import 'home_screens/navigation_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'DoorStep',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.orange),
-      home: const VerificationScreen(),
+      home: const NavigationScreen(),
     );
   }
 }
