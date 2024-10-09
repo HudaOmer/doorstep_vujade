@@ -53,7 +53,7 @@ class SearchFilterScreen extends StatelessWidget {
                 FilterWidget(filterName: 'Car Entrance')
               ],
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.45),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.4),
             Center(
                 child: ColoredButton(
                     color: mainColor, text: 'Done', onPressed: () {})),
