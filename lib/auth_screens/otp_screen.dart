@@ -24,10 +24,13 @@ class OTPScreen extends StatelessWidget {
             const Center(
                 child:
                     Text('OTP Verification', style: TextStyle(fontSize: 26))),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+            const Text('Enter The Verification Code',
+                style: TextStyle(fontSize: 20, color: Colors.grey)),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.1),
             const OTPWidget(),
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-            ColoredButton(color: Colors.grey, text: 'Submit', onPressed: () {}),
+            ColoredButton(color: mainColor, text: 'Done', onPressed: () {}),
             const SizedBox(height: 40),
           ],
         ),

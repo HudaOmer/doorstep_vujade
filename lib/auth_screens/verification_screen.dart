@@ -43,7 +43,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       value!.isEmpty ? 'Please Enter a valid email' : null),
               const SizedBox(height: 30),
               ColoredButton(
-                  color: mainColor,
+                  color: contrastColor,
                   text: 'Send Code',
                   onPressed: () {
                     _formKey.currentState!.validate();
