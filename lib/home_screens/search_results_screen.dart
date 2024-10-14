@@ -22,7 +22,8 @@ class SearchResultsScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
                 color: mediumGreyColor,
@@ -34,17 +35,17 @@ class SearchResultsScreen extends StatelessWidget {
                           color: Colors.grey, fontWeight: FontWeight.w700)),
                 )),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const [
-                SizedBox(width: 10),
+                // SizedBox(width: 10),
                 ApatrmentItem(isWide: false),
                 ApatrmentItem(isWide: false)
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const [
-                SizedBox(width: 10),
+                // SizedBox(width: 10),
                 ApatrmentItem(isWide: false),
                 ApatrmentItem(isWide: false)
               ],

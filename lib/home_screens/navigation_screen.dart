@@ -56,26 +56,26 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       height: iconSize,
                       iconName: home.mode[currentIndex == 0 ? 0 : 1])),
               BottomNavigationBarItem(
-                  label: 'Calender',
-                  tooltip: 'Calender',
+                  label: 'Map',
+                  tooltip: 'Map',
                   icon: CustomIcon(
                       height: iconSize,
                       iconName: map.mode[currentIndex == 1 ? 0 : 1])),
+              BottomNavigationBarItem(
+                  label: 'Add',
+                  tooltip: 'Add',
+                  icon: CustomIcon(
+                      height: iconSize,
+                      iconName: add.mode[currentIndex == 2 ? 0 : 1])),
               BottomNavigationBarItem(
                   label: 'Notifications',
                   tooltip: 'Notifications',
                   icon: CustomIcon(
                       height: iconSize,
-                      iconName: add.mode[currentIndex == 2 ? 0 : 1])),
-              BottomNavigationBarItem(
-                  label: 'Settings',
-                  tooltip: 'Settings',
-                  icon: CustomIcon(
-                      height: iconSize,
                       iconName: notifications.mode[currentIndex == 3 ? 0 : 1])),
               BottomNavigationBarItem(
-                  label: 'Settings',
-                  tooltip: 'Settings',
+                  label: 'Sort',
+                  tooltip: 'Sort',
                   icon: CustomIcon(
                       height: iconSize,
                       iconName: sort.mode[currentIndex == 4 ? 0 : 1])),

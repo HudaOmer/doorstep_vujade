@@ -52,11 +52,61 @@ class ApatrmentItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              CustomIcon(height: 130, iconName: 'assets/images/icons/Bell.png'),
-              Text('AL Rayyan', style: TextStyle(fontSize: 13)),
-              Text('2,000 SAR', style: TextStyle(fontSize: 13)),
-              LocationItem(location: 'Sudan')
+            children: [
+              CustomIcon(
+                  height: 130,
+                  iconName: isWide
+                      ? 'assets/images/buildings.jpeg'
+                      : 'assets/images/villa.jpeg'),
+              const Text('AL Rayyan', style: TextStyle(fontSize: 13)),
+              const Text('2,000 SAR', style: TextStyle(fontSize: 13)),
+              const LocationItem(location: 'Sudan')
+            ],
+          )),
+    );
+  }
+}
+
+class HorizantalApatrmentItem extends StatelessWidget {
+  final bool isWide;
+  const HorizantalApatrmentItem({
+    super.key,
+    required this.isWide,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Container(
+          width: 450,
+          height: 120,
+          padding: const EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(30), bottom: Radius.circular(30)),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 4,
+                  offset: const Offset(0, -2)),
+            ],
+          ),
+          child: Row(
+            children: [
+              const CustomIcon(
+                  height: 130, iconName: 'assets/images/buildings.jpeg'),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text('AL Rayyan', style: TextStyle(fontSize: 13)),
+                  Text('2,000 SAR', style: TextStyle(fontSize: 13)),
+                  LocationItem(location: 'Sudan')
+                ],
+              ),
             ],
           )),
     );
