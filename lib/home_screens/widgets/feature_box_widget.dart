@@ -13,7 +13,7 @@ class FeatureBoxWidget extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       color: mediumGreyColor,
       height: 40,
-      width: 180,
+      width: MediaQuery.of(context).size.width * 0.4,
       padding: const EdgeInsets.all(8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

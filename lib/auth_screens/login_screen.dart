@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
 import '../global_widgets/colored_text_button.dart';
 import '../global_widgets/decorated_text_field.dart';
+import '../home_screens/navigation_screen.dart';
 import '../utils/colors.dart';
+import 'auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,6 +17,26 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  final AuthService _authService = AuthService();
+
+  Future<void> loginUser() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    bool success =
+        await _authService.login(emailController.text, passwordController.text);
+
+    if (success) {
+      // Navigate to home screen
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const NavigationScreen()));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('Login failed. Please check your credentials.')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

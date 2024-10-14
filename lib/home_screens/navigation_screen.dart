@@ -4,7 +4,7 @@ import '../apartment/book_appointment_screen.dart';
 import '../global_widgets/custom_icon.dart';
 import '../utils/icon.dart';
 import 'home_screen.dart';
-import 'search_filter_screen.dart';
+import 'map_screen.dart';
 import 'search_results_screen.dart';
 
 double iconSize = 35;
@@ -18,12 +18,12 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   int currentIndex = 0;
-  List<Widget> pages = const [
-    HomePage(),
-    SearchFilterScreen(),
-    SearchResultsScreen(),
-    BookAppointmentScreen(),
-    ApartmentDetailScreen(),
+  List<Widget> pages = [
+    const HomePage(),
+    const MapScreen(),
+    const SearchResultsScreen(),
+    const BookAppointmentScreen(),
+    const ApartmentDetailScreen(),
   ];
 
   @override
