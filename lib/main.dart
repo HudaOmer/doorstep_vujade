@@ -24,12 +24,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DoorStep',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.orange),
-      home: isLoggedIn
-          ? const NavigationScreen()
-          : const LoginScreen(), // Navigate based on token presence
-    );
+        title: 'DoorStep',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.orange),
+        home: isLoggedIn ? const NavigationScreen() : const LoginScreen());
   }
 }

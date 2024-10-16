@@ -68,11 +68,7 @@ class ApatrmentItem extends StatelessWidget {
 }
 
 class HorizantalApatrmentItem extends StatelessWidget {
-  final bool isWide;
-  const HorizantalApatrmentItem({
-    super.key,
-    required this.isWide,
-  });
+  const HorizantalApatrmentItem({super.key});
 
   @override
   Widget build(BuildContext context) {

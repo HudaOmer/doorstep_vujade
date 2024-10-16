@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../global_widgets/apartment_item.dart';
+
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
   @override
@@ -19,15 +21,14 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Google Maps in Flutter')),
-      body: GoogleMap(
-        onMapCreated: _onMapCreated,
-        mapType: MapType.terrain,
-        initialCameraPosition: const CameraPosition(
-          target: _center,
-          zoom: 11.0,
-        ),
-      ),
+      body: Stack(children: [
+        GoogleMap(
+            onMapCreated: _onMapCreated,
+            mapType: MapType.hybrid,
+            initialCameraPosition:
+                const CameraPosition(target: _center, zoom: 11.0)),
+        const HorizantalApatrmentItem()
+      ]),
     );
   }
 }
