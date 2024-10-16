@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
 import '../utils/colors.dart';
+import 'edit_password_screen.dart';
+import 'verification_screen.dart';
 import 'widgets/otp_widget.dart';
 
 class OTPScreen extends StatelessWidget {
@@ -14,7 +16,12 @@ class OTPScreen extends StatelessWidget {
         elevation: 0,
         iconTheme: IconThemeData(color: contrastColor),
         backgroundColor: Colors.white,
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+            child: const Icon(Icons.arrow_back_ios),
+            onTap: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const VerificationScreen()))),
       ),
       body: SingleChildScrollView(
         child: Column(

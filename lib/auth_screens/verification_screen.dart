@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
 import '../global_widgets/decorated_text_field.dart';
 import '../utils/colors.dart';
+import 'edit_password_screen.dart';
+import 'otp_screen.dart';
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
@@ -22,7 +24,12 @@ class _VerificationScreenState extends State<VerificationScreen> {
         elevation: 0,
         iconTheme: IconThemeData(color: contrastColor),
         backgroundColor: Colors.white,
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+            child: const Icon(Icons.arrow_back_ios),
+            onTap: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const EditPasswordScreen()))),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -47,6 +54,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   text: 'Send Code',
                   onPressed: () {
                     _formKey.currentState!.validate();
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OTPScreen()));
                   }),
               const SizedBox(height: 40),
             ],

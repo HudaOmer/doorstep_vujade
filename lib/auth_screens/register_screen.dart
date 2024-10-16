@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../global_widgets/colored_button.dart';
 import '../global_widgets/decorated_text_field.dart';
 import '../utils/colors.dart';
+import 'login_Screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -29,7 +29,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         elevation: 0,
         iconTheme: IconThemeData(color: contrastColor),
         backgroundColor: Colors.white,
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+            child: const Icon(Icons.arrow_back_ios),
+            onTap: () => Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()))),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -45,17 +48,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: _nameController,
                   label: 'Name',
                   hint: 'First Last',
-                  isObsecure: false),
+                  isObsecure: false,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please Enter Your name' : null),
               DecoratedTextField(
                   controller: _emailController,
                   label: 'Email',
                   hint: 'SomeOne@email.com',
-                  isObsecure: false),
+                  isObsecure: false,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please Enter a valid email' : null),
               DecoratedTextField(
                   controller: _passwordController,
                   label: 'Password',
                   hint: '********',
-                  isObsecure: true),
+                  isObsecure: true,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please Enter a valid password' : null),
               SizedBox(height: MediaQuery.of(context).size.height * 0.10),
               ColoredButton(
                   color: contrastColor,

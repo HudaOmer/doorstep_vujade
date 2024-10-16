@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
 import '../global_widgets/decorated_text_field.dart';
 import '../utils/colors.dart';
+import 'forget_password_screen.dart';
+import 'verification_screen.dart';
 
 class EditPasswordScreen extends StatefulWidget {
   const EditPasswordScreen({super.key});
@@ -23,7 +25,12 @@ class _EditPasswordScreenState extends State<EditPasswordScreen> {
         elevation: 0,
         iconTheme: IconThemeData(color: contrastColor),
         backgroundColor: Colors.white,
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+            child: const Icon(Icons.arrow_back_ios),
+            onTap: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ForgetPasswordScreen()))),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -55,6 +62,10 @@ class _EditPasswordScreenState extends State<EditPasswordScreen> {
                   text: 'Save',
                   onPressed: () {
                     _formKey.currentState!.validate();
+                    (Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const VerificationScreen())));
                   }),
               const SizedBox(height: 40),
             ],

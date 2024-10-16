@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
-  final String baseUrl = 'http://your-laravel-app.test/api';
+  final String baseUrl = 'http://192.168.100.87:8000/api/auth';
 
   Future<bool> login(String email, String password) async {
     final url = Uri.parse('$baseUrl/login');
