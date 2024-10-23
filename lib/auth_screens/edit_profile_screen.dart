@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
+import 'widgets/photo_picker_widget.dart';
 import 'widgets/profile_field_widget.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class EditProfileScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-            Icon(Icons.account_circle, size: 150, color: mainColor),
+            const ProfilePhotoPicker(),
             const ProfileFieldWidget(
                 label: 'Name', hint: 'Someone', isObsecure: false),
             const ProfileFieldWidget(

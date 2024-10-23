@@ -6,20 +6,25 @@ import 'auth_screens/login_screen.dart';
 import 'auth_screens/otp_screen.dart';
 import 'auth_screens/register_screen.dart';
 import 'auth_screens/verification_screen.dart';
+import 'chat_screens/chat_screen.dart';
 import 'home_screens/navigation_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final prefs = await SharedPreferences.getInstance();
-  final token = prefs.getString('token'); // Retrieve token
+  // WidgetsFlutterBinding.ensureInitialized();
+  // final prefs = await SharedPreferences.getInstance();
+  // final token = prefs.getString('token'); // Retrieve token
 
-  runApp(MyApp(isLoggedIn: token != null));
+  runApp(const MyApp());
+  // isLoggedIn: token != null
 }
 
 class MyApp extends StatelessWidget {
-  final bool isLoggedIn;
+  // final bool isLoggedIn;
 
-  const MyApp({super.key, required this.isLoggedIn});
+  const MyApp({
+    super.key,
+    //  required this.isLoggedIn
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +32,8 @@ class MyApp extends StatelessWidget {
         title: 'DoorStep',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.orange),
-        home: isLoggedIn ? const NavigationScreen() : const LoginScreen());
+        home: const NavigationScreen()
+        // isLoggedIn ? const NavigationScreen() : const LoginScreen()
+        );
   }
 }

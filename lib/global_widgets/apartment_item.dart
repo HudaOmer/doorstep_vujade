@@ -14,7 +14,7 @@ class LocationItem extends StatelessWidget {
     return Row(
       children: [
         Icon(Icons.location_on_outlined, color: color),
-        const SizedBox(width: 10),
+        const SizedBox(width: 5),
         Text(location, style: TextStyle(color: color)),
         const SizedBox(width: 20),
       ],
@@ -75,7 +75,7 @@ class HorizantalApatrmentItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Container(
-          width: 450,
+          width: 300,
           height: 120,
           padding: const EdgeInsets.all(15.0),
           decoration: BoxDecoration(
@@ -93,7 +93,8 @@ class HorizantalApatrmentItem extends StatelessWidget {
           child: Row(
             children: [
               const CustomIcon(
-                  height: 130, iconName: 'assets/images/buildings.jpeg'),
+                  height: 80, iconName: 'assets/images/buildings.jpeg'),
+              const SizedBox(width: 15),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -21,10 +21,10 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
+      body: Stack(alignment: Alignment.bottomLeft, children: [
         GoogleMap(
             onMapCreated: _onMapCreated,
-            mapType: MapType.hybrid,
+            mapType: MapType.normal,
             initialCameraPosition:
                 const CameraPosition(target: _center, zoom: 11.0)),
         const HorizantalApatrmentItem()

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../apartment/apartment_detail_screen.dart';
 import '../apartment/book_appointment_screen.dart';
+import '../apartment/favorite_list_screen.dart';
+import '../auth_screens/edit_profile_screen.dart';
+import '../chat_screens/chat_screen.dart';
 import '../global_widgets/custom_icon.dart';
 import '../utils/icon.dart';
 import 'home_screen.dart';
@@ -21,9 +24,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
   List<Widget> pages = [
     const HomePage(),
     const MapScreen(),
-    const SearchResultsScreen(),
-    const BookAppointmentScreen(),
-    const ApartmentDetailScreen(),
+    const ChatScreen(),
+    const FavoriteListScreen(),
+    const EditProfileScreen(),
   ];
 
   @override
