@@ -7,6 +7,10 @@ class CustomIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: height, child: Image.asset(iconName));
+    return ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: SizedBox(
+            height: height,
+            child: Image.asset(iconName, fit: BoxFit.fitHeight)));
   }
 }
