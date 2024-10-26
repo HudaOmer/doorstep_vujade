@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/flutterproject/doorstep_vujade/linux"
+    "cmake.sourceDirectory": "D:/flutterproject/doorstep_vujade/linux",
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
