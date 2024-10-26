@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
 import '../utils/colors.dart';
-import 'edit_password_screen.dart';
 import 'verification_screen.dart';
 import 'widgets/otp_widget.dart';
 
