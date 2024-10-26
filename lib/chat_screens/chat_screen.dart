@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
-
 import '../utils/colors.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -56,7 +55,9 @@ class _ChatScreenState extends State<ChatScreen> {
         backgroundColor: Colors.white,
         title: const Center(
             child: Text('Chat    ', style: TextStyle(fontSize: 20))),
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: const Icon(Icons.arrow_back_ios)),
       ),
       body: Chat(
         messages: messages.reversed.toList(),
