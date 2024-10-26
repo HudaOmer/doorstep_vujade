@@ -18,12 +18,13 @@ class BookAppointmentScreen extends StatelessWidget {
       appBar: CustomAppBar(
           color: contrastColor,
           title: 'Book An Appointment    ',
+          onTap: () => Navigator.pop(context),
           body: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: const [
+                const Row(
+                  children: [
                     SizedBox(width: 20),
                     Text('Oct, 2024',
                         style: TextStyle(
@@ -33,9 +34,9 @@ class BookAppointmentScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 40),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
+                  children: [
                     WeekdayDateWidget(day: 'sun', date: '3', isToday: false),
                     WeekdayDateWidget(day: 'mon', date: '4', isToday: true),
                     WeekdayDateWidget(day: 'tue', date: '5', isToday: false),

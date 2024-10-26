@@ -31,10 +31,10 @@ class FavApatrmentItem extends StatelessWidget {
             const CustomIcon(
                 height: 80, iconName: 'assets/images/buildings.jpeg'),
             const SizedBox(width: 15),
-            Column(
+            const Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text('AL Rayyan', style: TextStyle(fontSize: 13)),
                 Text('2,000 SAR', style: TextStyle(fontSize: 13)),
                 LocationItem(location: 'Sudan')
