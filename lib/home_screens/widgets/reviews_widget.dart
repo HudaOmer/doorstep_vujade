@@ -5,14 +5,14 @@ class ReviewsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Reviews',
+        Text('Reviews',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-        const SizedBox(height: 10),
+        SizedBox(height: 10),
         Row(
-          children: const [
+          children: [
             Icon(Icons.star),
             Icon(Icons.star),
             Icon(Icons.star),
@@ -30,11 +30,11 @@ class RequestWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          children: const [
+          children: [
             Icon(Icons.check_circle_outline_outlined),
             SizedBox(width: 10),
             Text('Request door lock code',

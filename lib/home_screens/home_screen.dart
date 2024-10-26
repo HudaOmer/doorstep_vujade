@@ -17,8 +17,8 @@ class HomePage extends StatelessWidget {
         toolbarHeight: appbarheight,
         iconTheme: IconThemeData(color: contrastColor),
         backgroundColor: Colors.white,
-        leading: Row(
-          children: const [
+        leading: const Row(
+          children: [
             SizedBox(width: 25),
             Icon(Icons.menu, size: 30),
           ],
@@ -34,26 +34,26 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [CustomSearchBar(), Icon(Icons.settings)],
+              children:  [CustomSearchBar(), Icon(Icons.settings)],
             ),
             const SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.only(left: 30.0, right: 30.0),
+            const Padding(
+              padding:  EdgeInsets.only(left: 30.0, right: 30.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children:  [
                   Text('Distinctive',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                 ],
               ),
             ),
-            SingleChildScrollView(
+            const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: const [
+                  children:  [
                     ApatrmentItem(isWide: true),
                     ApatrmentItem(isWide: true),
                     ApatrmentItem(isWide: true)
@@ -79,10 +79,10 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SingleChildScrollView(
+            const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: const [
+                  children:  [
                     ApatrmentItem(isWide: false),
                     ApatrmentItem(isWide: false),
                     ApatrmentItem(isWide: false)

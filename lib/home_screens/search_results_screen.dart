@@ -18,7 +18,9 @@ class SearchResultsScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         title: const Center(
             child: Text('Search Results     ', style: TextStyle(fontSize: 20))),
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: const Icon(Icons.arrow_back_ios)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -34,17 +36,17 @@ class SearchResultsScreen extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.grey, fontWeight: FontWeight.w700)),
                 )),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
+              children: [
                 // SizedBox(width: 10),
                 ApatrmentItem(isWide: false),
                 ApatrmentItem(isWide: false)
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
+              children: [
                 // SizedBox(width: 10),
                 ApatrmentItem(isWide: false),
                 ApatrmentItem(isWide: false)

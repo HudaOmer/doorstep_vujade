@@ -26,9 +26,9 @@ class SearchFilterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
+              children:  [
                 SizedBox(width: 30),
                 FilterWidget(filterName: 'price'),
                 SizedBox(width: 30),
@@ -36,9 +36,9 @@ class SearchFilterScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 15),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
+              children:  [
                 SizedBox(width: 30),
                 FilterWidget(filterName: 'Modern'),
                 SizedBox(width: 30),
@@ -46,9 +46,9 @@ class SearchFilterScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 15),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
+              children:  [
                 SizedBox(width: 30),
                 FilterWidget(filterName: 'Car Entrance')
               ],

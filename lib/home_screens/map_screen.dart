@@ -27,7 +27,10 @@ class _MapScreenState extends State<MapScreen> {
             mapType: MapType.normal,
             initialCameraPosition:
                 const CameraPosition(target: _center, zoom: 11.0)),
-        const HorizantalApatrmentItem()
+     const   Padding(
+          padding:  EdgeInsets.only(bottom:10.0),
+          child:  HorizantalApatrmentItem(),
+        )
       ]),
     );
   }

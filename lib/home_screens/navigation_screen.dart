@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import '../apartment/apartment_detail_screen.dart';
-import '../apartment/book_appointment_screen.dart';
 import '../apartment/favorite_list_screen.dart';
 import '../auth_screens/edit_profile_screen.dart';
-import '../chat_screens/chat_screen.dart';
 import '../global_widgets/custom_icon.dart';
 import '../utils/icon.dart';
 import 'home_screen.dart';
 import 'map_screen.dart';
-import 'search_results_screen.dart';
+import 'search_filter_screen.dart';
 
 double iconSize = 35;
 
@@ -24,7 +21,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   List<Widget> pages = [
     const HomePage(),
     const MapScreen(),
-    const ChatScreen(),
+    const SearchFilterScreen(),
     const FavoriteListScreen(),
     const EditProfileScreen(),
   ];
