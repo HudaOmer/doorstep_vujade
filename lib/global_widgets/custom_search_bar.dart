@@ -25,7 +25,7 @@ class CustomSearchBar extends StatelessWidget {
                 padding:
                     const EdgeInsets.only(left: 17.0, right: 17.0, bottom: 5.0),
                 child: TextFormField(
-                  cursorColor: Colors.white,
+                  cursorColor: Colors.orange,
                   decoration: const InputDecoration.collapsed(
                       hintText: 'Search',
                       hintStyle: TextStyle(fontSize: 13, color: Colors.grey)),

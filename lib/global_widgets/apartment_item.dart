@@ -33,7 +33,7 @@ class ApatrmentItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushReplacement(
+      onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => const ApartmentDetailScreen())),
