@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'auth_screens/edit_password_screen.dart';
-import 'auth_screens/forget_password_screen.dart';
 import 'auth_screens/login_screen.dart';
-import 'auth_screens/otp_screen.dart';
-import 'auth_screens/register_screen.dart';
-import 'auth_screens/verification_screen.dart';
-import 'chat_screens/chat_screen.dart';
-import 'home_screens/navigation_screen.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -31,8 +23,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'DoorStep',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.orange),
-        home: const NavigationScreen()
+        theme: ThemeData(colorSchemeSeed: Colors.orange),
+        home: const LoginScreen()
         // isLoggedIn ? const NavigationScreen() : const LoginScreen()
         );
   }
