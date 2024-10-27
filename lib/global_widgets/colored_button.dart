@@ -18,7 +18,10 @@ class ColoredButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      style: TextButton.styleFrom(backgroundColor: color),
+      style: TextButton.styleFrom(
+        backgroundColor: color,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      ),
       child: Container(
         alignment: Alignment.center,
         height: 50,
