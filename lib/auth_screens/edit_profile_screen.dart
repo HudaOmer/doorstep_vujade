@@ -16,7 +16,9 @@ class EditProfileScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         title: const Center(
             child: Text('Edit Profile      ', style: TextStyle(fontSize: 20))),
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+            child: const Icon(Icons.arrow_back_ios),
+            onTap: () => Navigator.pop(context)),
       ),
       body: SingleChildScrollView(
         child: Column(

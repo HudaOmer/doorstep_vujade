@@ -35,7 +35,7 @@ class _ProfilePhotoPickerState extends State<ProfilePhotoPicker> {
               radius: 60,
               backgroundImage: _profileImage != null
                   ? FileImage(_profileImage!)
-                  : const AssetImage('assets/default_profile.png')
+                  : const AssetImage('assets/images/buildings.jpeg')
                       as ImageProvider,
               child: _profileImage == null
                   ? const Icon(Icons.camera_alt, size: 40)
