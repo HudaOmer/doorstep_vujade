@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../apartment/favorite_list_screen.dart';
-import '../auth_screens/edit_profile_screen.dart';
+import '../apartment/ratings_screen.dart';
 import '../global_widgets/custom_icon.dart';
 import '../utils/icon.dart';
 import 'home_screen.dart';
+import 'lists_screen.dart';
 import 'map_screen.dart';
 import 'search_filter_screen.dart';
 
@@ -22,8 +22,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
     const HomePage(),
     const MapScreen(),
     const SearchFilterScreen(),
-    const FavoriteListScreen(),
-    const EditProfileScreen(),
+    const RatingsScreen(),
+    const ListsScreen(),
   ];
 
   @override

@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/colors.dart';
+
 class ReviewsWidget extends StatelessWidget {
   const ReviewsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Reviews',
+        const Text('Reviews',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Row(
           children: [
-            Icon(Icons.star),
-            Icon(Icons.star),
-            Icon(Icons.star),
-            Icon(Icons.star),
-            Icon(Icons.star_border),
+            const Icon(Icons.star_rounded),
+            const Icon(Icons.star_rounded),
+            const Icon(Icons.star_rounded),
+            const Icon(Icons.star_half_rounded),
+            const Icon(Icons.star_border_rounded),
+            const SizedBox(width: 10),
+            Icon(Icons.add_box_outlined, color: mainColor)
           ],
         )
       ],
