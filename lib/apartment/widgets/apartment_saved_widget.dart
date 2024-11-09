@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../global_widgets/apartment_item.dart';
 import '../../global_widgets/custom_icon.dart';
-import '../../utils/colors.dart';
 
-class FavApatrmentItem extends StatelessWidget {
-  final bool isFav;
-  const FavApatrmentItem({super.key, required this.isFav});
+class SaveApatrmentItem extends StatelessWidget {
+  final bool isSaved;
+  const SaveApatrmentItem({super.key, required this.isSaved});
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +39,12 @@ class FavApatrmentItem extends StatelessWidget {
                 LocationItem(location: 'Sudan')
               ],
             ),
-            const SizedBox(width: 15),
-            Icon(isFav ? Icons.favorite : Icons.favorite_outline,
-                color: mainColor)
+            const SizedBox(width: 70),
+            Icon(
+                isSaved
+                    ? Icons.bookmark_rounded
+                    : Icons.bookmark_outline_rounded,
+                color: Colors.grey)
           ],
         ),
       ),

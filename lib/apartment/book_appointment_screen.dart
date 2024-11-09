@@ -7,6 +7,7 @@ import '../home_screens/widgets/paragraph_widget.dart';
 import '../home_screens/widgets/reviews_widget.dart';
 import '../utils/colors.dart';
 import '../global_widgets/custom_appbar.dart';
+import 'widgets/time_widget.dart';
 
 class BookAppointmentScreen extends StatelessWidget {
   const BookAppointmentScreen({super.key});
@@ -17,7 +18,7 @@ class BookAppointmentScreen extends StatelessWidget {
       backgroundColor: contrastColor,
       appBar: CustomAppBar(
           color: contrastColor,
-          title: 'Book An Appointment    ',
+          title: 'Book an Appointment    ',
           onTap: () => Navigator.pop(context),
           body: [
             Column(
@@ -29,11 +30,11 @@ class BookAppointmentScreen extends StatelessWidget {
                     Text('Oct, 2024',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 22,
+                            fontSize: 20,
                             fontWeight: FontWeight.w600)),
                   ],
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 10),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -46,6 +47,8 @@ class BookAppointmentScreen extends StatelessWidget {
                     WeekdayDateWidget(day: 'sat', date: '9', isToday: false),
                   ],
                 ),
+                const SizedBox(height: 15),
+                const TimeWidget(from: '00:00', to: '00:00'),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               ],
             )
@@ -71,12 +74,11 @@ class BookAppointmentScreen extends StatelessWidget {
                       const SizedBox(height: 30),
                       DescriptionWidget(apartment: apartment),
                       const SizedBox(height: 30),
-                      const ReviewsWidget(),
+                      const RequestWidget(),
                       const SizedBox(height: 30),
                       Center(
                         child: ColoredButton(
-                            icon: Icons.calendar_month_rounded,
-                            text: '10/10/2024',
+                            text: 'Send',
                             color: contrastColor,
                             onPressed: () {}),
                       ),
@@ -106,8 +108,8 @@ class WeekdayDateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50,
-      height: 70,
+      width: 47,
+      height: 62,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: mainColor.withOpacity(isToday ? 0.2 : 0.0)),
@@ -116,7 +118,7 @@ class WeekdayDateWidget extends StatelessWidget {
         children: [
           Text(day,
               style: TextStyle(
-                  color: isToday ? mainColor : Colors.white, fontSize: 13)),
+                  color: isToday ? mainColor : Colors.white, fontSize: 12)),
           Text(date,
               style: TextStyle(
                   color: isToday ? mainColor : Colors.white,

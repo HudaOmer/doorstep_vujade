@@ -53,13 +53,25 @@ class ApartmentDetailScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DetailWidget(apartment: apartment),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        DetailWidget(apartment: apartment),
+                        const Row(
+                          children: [
+                            Icon(Icons.remove_red_eye_outlined),
+                            Text('33'),
+                          ],
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 30),
                     ParagraphWidget(apartment: apartment),
                     const SizedBox(height: 30),
                     DescriptionWidget(apartment: apartment),
                     const SizedBox(height: 30),
-                    const RequestWidget(),
+                    const ReviewsWidget(),
                     const SizedBox(height: 30),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
-import 'widgets/apartment_favorite_widget.dart';
+import 'widgets/apartment_request_widget.dart';
 
-class FavoriteListScreen extends StatelessWidget {
-  const FavoriteListScreen({super.key});
+class ApartmentRequestsScreen extends StatelessWidget {
+  const ApartmentRequestsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +14,18 @@ class FavoriteListScreen extends StatelessWidget {
         iconTheme: IconThemeData(color: contrastColor),
         backgroundColor: Colors.white,
         title: const Center(
-            child: Text('Favorite List      ', style: TextStyle(fontSize: 20))),
+            child: Text('Requests      ', style: TextStyle(fontSize: 20))),
         leading: GestureDetector(
-            child: const Icon(Icons.arrow_back_ios),
-            onTap: () => Navigator.pop(context)),
+            onTap: () => Navigator.pop(context),
+            child: const Icon(Icons.arrow_back_ios)),
       ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-            const FavApatrmentItem(isFav: true),
-            const FavApatrmentItem(isFav: true),
+            const ReqApatrmentItem(isFav: true),
+            const ReqApatrmentItem(isFav: true),
             const Center(child: SizedBox(height: 40)),
           ],
         ),
