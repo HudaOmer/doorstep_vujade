@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "969181639802",
+    "project_id": "doorstep-vujade",
+    "storage_bucket": "doorstep-vujade.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969181639802:android:6febe909fff07281da77c3",
+        "android_client_info": {
+          "package_name": "com.example.doorstep_vujade"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUGHtdDcJXSWh8_cmUxkHwSFKDZ1j9WKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
