@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../apartment/ratings_screen.dart';
 import '../../utils/colors.dart';
 
 class ReviewsWidget extends StatelessWidget {
@@ -21,7 +22,12 @@ class ReviewsWidget extends StatelessWidget {
             const Icon(Icons.star_half_rounded),
             const Icon(Icons.star_border_rounded),
             const SizedBox(width: 10),
-            Icon(Icons.add_box_outlined, color: mainColor)
+            GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RatingsScreen())),
+                child: Icon(Icons.add_box_outlined, color: mainColor))
           ],
         )
       ],

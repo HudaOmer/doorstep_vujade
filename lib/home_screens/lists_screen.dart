@@ -38,10 +38,14 @@ class ListsScreen extends StatelessWidget {
             icon: Icons.bookmark,
             screen: SavedCategoriesScreen()),
         const CustomListTile(
+            title: 'Requests',
+            icon: Icons.list_alt_rounded,
+            screen: ApartmentRequestsScreen()),
+        const CustomListTile(
             title: 'Settings',
             icon: Icons.settings,
             screen: ApartmentRequestsScreen()),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.35),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.26),
         Center(
             child: ColoredButton(
                 color: mainColor, text: 'Log Out', onPressed: () {})),

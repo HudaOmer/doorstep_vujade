@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../apartment/ratings_screen.dart';
+import '../chat_screens/all_chats_screen.dart';
 import '../global_widgets/custom_icon.dart';
 import '../utils/icon.dart';
 import 'home_screen.dart';
@@ -21,8 +21,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   List<Widget> pages = [
     const HomePage(),
     const MapScreen(),
+    const AllChatsScreen(),
     const SearchFilterScreen(),
-    const RatingsScreen(),
     const ListsScreen(),
   ];
 
