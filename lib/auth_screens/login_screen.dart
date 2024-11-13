@@ -30,8 +30,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (success) {
       // Navigate to home screen
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const NavigationScreen()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const NavigationScreen()));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -79,15 +79,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ColoredButton(
                   color: mainColor,
                   text: 'Log in',
-                  onPressed: () => Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NavigationScreen()))
-                  // async {
-                  //   _formKey.currentState!.validate();
-                  //   await loginUser();
-                  // }
-                  ),
+                  onPressed: ()
+                      // => Navigator.pushReplacement(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const NavigationScreen()))
+                      async {
+                    _formKey.currentState!.validate();
+                    await loginUser();
+                  }),
               const SizedBox(height: 10),
               ColoredButton(
                   color: contrastColor,
