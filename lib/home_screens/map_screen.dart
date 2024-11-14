@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import '../global_widgets/apartment_item.dart';
 
 class MapScreen extends StatefulWidget {
@@ -27,9 +26,9 @@ class _MapScreenState extends State<MapScreen> {
             mapType: MapType.normal,
             initialCameraPosition:
                 const CameraPosition(target: _center, zoom: 11.0)),
-     const   Padding(
-          padding:  EdgeInsets.only(bottom:10.0),
-          child:  HorizantalApatrmentItem(),
+        const Padding(
+          padding: EdgeInsets.only(bottom: 10.0),
+          child: HorizantalApatrmentItem(),
         )
       ]),
     );

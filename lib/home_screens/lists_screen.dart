@@ -2,14 +2,30 @@ import 'package:flutter/material.dart';
 import '../apartment/apartment_requests_screen.dart';
 import '../apartment/favorite_list_screen.dart';
 import '../apartment/saved_categories_screen.dart';
+import '../auth_screens/login_screen.dart';
 import '../global_widgets/colored_button.dart';
 import '../utils/colors.dart';
 import '../auth_screens/edit_profile_screen.dart';
+import '../auth_screens/auth.dart';
 
 double appbarheight = 80;
 
-class ListsScreen extends StatelessWidget {
+class ListsScreen extends StatefulWidget {
   const ListsScreen({super.key});
+
+  @override
+  State<ListsScreen> createState() => _ListsScreenState();
+}
+
+class _ListsScreenState extends State<ListsScreen> {
+  final AuthService _authService = AuthService();
+  Future<void> logout(BuildContext context) async {
+    await _authService.logout(); // Call the logout method
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
+    ); // Navigate to LoginScreen
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +64,9 @@ class ListsScreen extends StatelessWidget {
         SizedBox(height: MediaQuery.of(context).size.height * 0.26),
         Center(
             child: ColoredButton(
-                color: mainColor, text: 'Log Out', onPressed: () {})),
+                color: mainColor,
+                text: 'Log Out',
+                onPressed: () => logout(context))),
       ]),
     );
   }

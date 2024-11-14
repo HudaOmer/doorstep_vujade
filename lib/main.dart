@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'auth_screens/login_screen.dart';
 import 'home_screens/navigation_screen.dart';
@@ -9,7 +10,9 @@ void main() async {
   await Firebase.initializeApp();
   final prefs = await SharedPreferences.getInstance();
   final token = prefs.getString('token'); // Retrieve token
+  // await dotenv.load(fileName: ".env");
 
+  // print(dotenv.env['ENDPOINT']);
   runApp(MyApp(isLoggedIn: token != null));
 }
 

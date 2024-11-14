@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
 import '../global_widgets/decorated_text_field.dart';
+import '../home_screens/navigation_screen.dart';
 import '../utils/colors.dart';
 import 'login_Screen.dart';
+import 'auth.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -13,13 +15,34 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final _nameController = TextEditingController();
-
   final _emailController = TextEditingController();
-
   final _passwordController = TextEditingController();
+  final _phoneController = TextEditingController();
 
-  // final _phoneController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final AuthService _authService = AuthService();
+
+  Future<void> registerUser() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    bool success = await _authService.register(
+      _nameController.text,
+      _phoneController.text,
+      _emailController.text,
+      _passwordController.text,
+      'user', // Adjust user type as needed
+    );
+
+    if (success) {
+      // Navigate to home screen
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const NavigationScreen()));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Registration failed. Please try again.')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +92,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ColoredButton(
                   color: contrastColor,
                   text: 'Register',
-                  onPressed: () {
+                  onPressed: () async {
                     _formKey.currentState!.validate();
+                    await registerUser();
                   }),
               const SizedBox(height: 40),
             ],
