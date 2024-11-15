@@ -3,8 +3,8 @@ import 'package:validators/validators.dart' as validator;
 import '../global_widgets/colored_button.dart';
 import '../global_widgets/decorated_text_field.dart';
 import '../home_screens/navigation_screen.dart';
+import '../services/auth.dart';
 import '../utils/colors.dart';
-import 'auth.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

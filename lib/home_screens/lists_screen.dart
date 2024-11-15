@@ -4,9 +4,9 @@ import '../apartment/favorite_list_screen.dart';
 import '../apartment/saved_categories_screen.dart';
 import '../auth_screens/login_screen.dart';
 import '../global_widgets/colored_button.dart';
+import '../services/auth.dart';
 import '../utils/colors.dart';
 import '../auth_screens/edit_profile_screen.dart';
-import '../auth_screens/auth.dart';
 
 double appbarheight = 80;
 

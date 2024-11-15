@@ -40,16 +40,16 @@ class SearchResultsScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 // SizedBox(width: 10),
-                ApatrmentItem(isWide: false),
-                ApatrmentItem(isWide: false)
+                ApartmentItem(isWide: false),
+                ApartmentItem(isWide: false)
               ],
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 // SizedBox(width: 10),
-                ApatrmentItem(isWide: false),
-                ApatrmentItem(isWide: false)
+                ApartmentItem(isWide: false),
+                ApartmentItem(isWide: false)
               ],
             ),
             const SizedBox(height: 40),

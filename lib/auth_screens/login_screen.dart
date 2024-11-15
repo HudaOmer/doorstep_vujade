@@ -3,10 +3,10 @@ import '../global_widgets/colored_button.dart';
 import '../global_widgets/colored_text_button.dart';
 import '../global_widgets/decorated_text_field.dart';
 import '../home_screens/navigation_screen.dart';
+import '../services/auth.dart';
 import 'register_screen.dart';
 import 'forget_password_screen.dart';
 import '../utils/colors.dart';
-import 'auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

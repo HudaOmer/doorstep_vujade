@@ -23,12 +23,11 @@ class LocationItem extends StatelessWidget {
   }
 }
 
-class ApatrmentItem extends StatelessWidget {
+class ApartmentItem extends StatelessWidget {
   final bool isWide;
-  const ApatrmentItem({
-    super.key,
-    required this.isWide,
-  });
+  final dynamic property;
+
+  const ApartmentItem({super.key, required this.isWide, this.property});
 
   @override
   Widget build(BuildContext context) {
@@ -40,47 +39,52 @@ class ApatrmentItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Container(
-            width: isWide ? 250 : 170,
-            height: 240,
-            padding: const EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(15), bottom: Radius.circular(15)),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    spreadRadius: 1,
-                    blurRadius: 4,
-                    offset: const Offset(0, -2)),
-              ],
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomIcon(
-                    height: 120,
-                    iconName: isWide
-                        ? 'assets/images/buildings.jpeg'
-                        : 'assets/images/villa.jpeg'),
-                const SizedBox(height: 5),
-                const Row(
-                  children: [
-                    SizedBox(width: 5),
-                    Text('AL Rayyan', style: TextStyle(fontSize: 12))
-                  ],
-                ),
-                const Row(
-                  children: [
-                    Icon(Icons.access_time, size: 20),
-                    SizedBox(width: 4),
-                    Text('15 Oct, 2024', style: TextStyle(fontSize: 12)),
-                  ],
-                ),
-                const LocationItem(location: 'Riyadh')
-              ],
-            )),
+          width: isWide ? 250 : 170,
+          height: 240,
+          padding: const EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(15), bottom: Radius.circular(15)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 4,
+                offset: const Offset(0, -2),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomIcon(
+                height: 120,
+                iconName: isWide
+                    ? 'assets/images/buildings.jpeg'
+                    : 'assets/images/villa.jpeg',
+              ),
+              const SizedBox(height: 5),
+              Row(
+                children: [
+                  const SizedBox(width: 5),
+                  Text(property != null ? property['title'] : 'No Title',maxLines: 2,
+                      style: const TextStyle(fontSize: 12)),
+                ],
+              ),
+              const Row(
+                children: [
+                  Icon(Icons.access_time, size: 20),
+                  SizedBox(width: 4),
+                  Text('00:00', style: TextStyle(fontSize: 12)),
+                ],
+              ),
+              LocationItem(
+                  location: property != null ? property['location'] : 'Riyadh'),
+            ],
+          ),
+        ),
       ),
     );
   }

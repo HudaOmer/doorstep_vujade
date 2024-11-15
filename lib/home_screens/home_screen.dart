@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../utils/colors.dart';
+import '../apartment/property_search_screen.dart';
 import '../global_widgets/apartment_item.dart';
 import '../global_widgets/custom_search_bar.dart';
 
@@ -34,16 +35,25 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children:  [CustomSearchBar(), Icon(Icons.settings)],
+              children: [
+                const CustomSearchBar(),
+                GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const PropertySearchScreen())),
+                    child: const Icon(Icons.settings))
+              ],
             ),
             const SizedBox(height: 30),
             const Padding(
-              padding:  EdgeInsets.only(left: 30.0, right: 30.0),
+              padding: EdgeInsets.only(left: 30.0, right: 30.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:  [
+                children: [
                   Text('Distinctive',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
@@ -53,10 +63,10 @@ class HomePage extends StatelessWidget {
             const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children:  [
-                    ApatrmentItem(isWide: true),
-                    ApatrmentItem(isWide: true),
-                    ApatrmentItem(isWide: true)
+                  children: [
+                    ApartmentItem(isWide: true),
+                    ApartmentItem(isWide: true),
+                    ApartmentItem(isWide: true)
                   ],
                 )),
             const SizedBox(height: 10),
@@ -82,10 +92,10 @@ class HomePage extends StatelessWidget {
             const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children:  [
-                    ApatrmentItem(isWide: false),
-                    ApatrmentItem(isWide: false),
-                    ApatrmentItem(isWide: false)
+                  children: [
+                    ApartmentItem(isWide: false),
+                    ApartmentItem(isWide: false),
+                    ApartmentItem(isWide: false)
                   ],
                 )),
             const SizedBox(height: 30),
