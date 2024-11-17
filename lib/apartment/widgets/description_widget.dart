@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../../models/apartment.dart';
+import '../../models/property.dart';
 import 'feature_box_widget.dart';
+import '../../utils/data.dart';
 
 class DescriptionWidget extends StatelessWidget {
-  final Apartment apartment;
-  const DescriptionWidget({super.key, required this.apartment});
+  final Property property;
+  const DescriptionWidget({super.key, required this.property});
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +20,19 @@ class DescriptionWidget extends StatelessWidget {
             Column(
               children: [
                 FeatureBoxWidget(
-                    feature: 'Bedrooms', value: apartment.bedrooms.toString()),
+                    feature: 'Bedrooms', value: property.bedrooms.toString()),
                 FeatureBoxWidget(
                     feature: 'Loungs', value: apartment.lounge.toString()),
                 FeatureBoxWidget(
-                    feature: 'Toilets', value: apartment.toilets.toString()),
+                    feature: 'Toilets', value: property.bathrooms.toString()),
               ],
             ),
             Column(
               children: [
                 FeatureBoxWidget(
-                    feature: 'Category', value: apartment.category),
-                FeatureBoxWidget(feature: 'Space', value: apartment.space),
+                    feature: 'Category', value: property.propertyType),
+                FeatureBoxWidget(
+                    feature: 'Space', value: property.area.toString()),
                 FeatureBoxWidget(
                     feature: 'Coverage', value: apartment.coverage),
               ],

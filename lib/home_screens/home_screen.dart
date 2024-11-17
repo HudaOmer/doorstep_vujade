@@ -3,6 +3,7 @@ import '../../utils/colors.dart';
 import '../apartment/property_search_screen.dart';
 import '../global_widgets/apartment_item.dart';
 import '../global_widgets/custom_search_bar.dart';
+import 'widgets/items_slider.dart';
 
 double appbarheight = 80;
 
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
         actions: [
           Padding(
             padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.02),
+                right: MediaQuery.of(context).size.width * 0.08),
             child: const LocationItem(location: 'Riyadh'),
           ),
         ],
@@ -49,26 +50,25 @@ class HomePage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30),
-            const Padding(
-              padding: EdgeInsets.only(left: 30.0, right: 30.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 30.0, right: 30.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Distinctive',
+                  const Text('Distinctive',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                  Text(
+                    'See All',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: mainColor),
+                  ),
                 ],
               ),
             ),
-            const SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ApartmentItem(isWide: true),
-                    ApartmentItem(isWide: true),
-                    ApartmentItem(isWide: true)
-                  ],
-                )),
+            const ItemsSlider(maxPrice: 500000, isWide: true),
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(left: 30.0, right: 30.0),
@@ -89,15 +89,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ApartmentItem(isWide: false),
-                    ApartmentItem(isWide: false),
-                    ApartmentItem(isWide: false)
-                  ],
-                )),
+            const ItemsSlider(maxPrice: 300000, isWide: false),
             const SizedBox(height: 30),
           ],
         ),

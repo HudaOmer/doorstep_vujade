@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../apartment/ratings_screen.dart';
+import '../ratings_screen.dart';
 import '../../utils/colors.dart';
 
 class ReviewsWidget extends StatelessWidget {

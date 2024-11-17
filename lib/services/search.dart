@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class ApiService {
-  final String baseUrl = 'http://192.168.100.87:8000/api';
+String baseUrl = 'http://192.168.100.87:8000/api';
 
+class ApiService {
   Future<List<dynamic>> searchProperties(String token,
       {Map<String, String>? filters}) async {
     String url = '$baseUrl/search/properties';

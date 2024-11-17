@@ -1,17 +1,65 @@
+import 'package:doorstep_vujade/utils/data.dart';
 import 'package:flutter/material.dart';
 import '../chat_screens/chat_screen.dart';
 import '../global_widgets/colored_button.dart';
 import '../global_widgets/custom_appbar.dart';
-import '../home_screens/widgets/description_widget.dart';
-import '../home_screens/widgets/detail_widget.dart';
-import '../home_screens/widgets/paragraph_widget.dart';
-import '../home_screens/widgets/reviews_widget.dart';
+import '../models/favorite.dart';
+import '../models/property.dart';
+import '../services/favorite.dart';
+import 'widgets/description_widget.dart';
+import 'widgets/detail_widget.dart';
+import 'widgets/paragraph_widget.dart';
+import 'widgets/reviews_widget.dart';
 import '../utils/colors.dart';
-import '../utils/data.dart';
 import 'book_appointment_screen.dart';
 
-class ApartmentDetailScreen extends StatelessWidget {
-  const ApartmentDetailScreen({super.key});
+class ApartmentDetailScreen extends StatefulWidget {
+  final dynamic propertyJSON;
+  final Property? propertyReady;
+
+  const ApartmentDetailScreen(
+      {super.key, this.propertyJSON, this.propertyReady});
+
+  @override
+  State<ApartmentDetailScreen> createState() => _ApartmentDetailScreenState();
+}
+
+class _ApartmentDetailScreenState extends State<ApartmentDetailScreen> {
+  late Property property;
+  bool isFavorited = false; // Track favorite status
+  final FavoriteService favoriteService =
+      FavoriteService(); // Initialize the service
+
+  @override
+  void initState() {
+    super.initState();
+    property = widget.propertyReady != null
+        ? widget.propertyReady!
+        : Property.fromJson(widget.propertyJSON);
+    _checkIfFavorite(); // Check if the property is already a favorite
+  }
+
+  void _checkIfFavorite() async {
+    List<Favorite> favorites = await favoriteService.fetchFavorites();
+    setState(() {
+      isFavorited =
+          favorites.any((favorite) => favorite.propertyId == property.id);
+    });
+  }
+
+  void toggleFavorite() async {
+    if (isFavorited) {
+      await favoriteService.removeFavorite(property.id!);
+      setState(() {
+        isFavorited = false;
+      });
+    } else {
+      await favoriteService.addFavorite(property.id!);
+      setState(() {
+        isFavorited = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +67,17 @@ class ApartmentDetailScreen extends StatelessWidget {
       backgroundColor: contrastColor,
       appBar: CustomAppBar(
         color: Colors.black26,
-        image: apartment.imageUrl,
+        image: apartment.imageUrl, // Use property.imageUrl
         arrowColor: mainColor,
         onTap: () => Navigator.pop(context),
         actions: [
-          Icon(Icons.favorite_outline, color: mainColor),
+          GestureDetector(
+            onTap: toggleFavorite, // Call toggleFavorite on tap
+            child: Icon(
+              isFavorited ? Icons.favorite : Icons.favorite_outline,
+              color: mainColor,
+            ),
+          ),
           const SizedBox(width: 5),
           Icon(Icons.bookmark_border, color: mainColor),
           const SizedBox(width: 25),
@@ -57,19 +111,21 @@ class ApartmentDetailScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        DetailWidget(apartment: apartment),
-                        const Row(
+                        DetailWidget(property: property),
+                        Row(
                           children: [
-                            Icon(Icons.remove_red_eye_outlined),
-                            Text('33'),
+                            const Icon(Icons.remove_red_eye_outlined),
+                            const SizedBox(width: 5),
+                            Text(property.viewCount.toString()),
+                            const SizedBox(width: 18),
                           ],
                         ),
                       ],
                     ),
                     const SizedBox(height: 30),
-                    ParagraphWidget(apartment: apartment),
+                    ParagraphWidget(property: property),
                     const SizedBox(height: 30),
-                    DescriptionWidget(apartment: apartment),
+                    DescriptionWidget(property: property),
                     const SizedBox(height: 30),
                     const ReviewsWidget(),
                     const SizedBox(height: 30),
@@ -77,29 +133,35 @@ class ApartmentDetailScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ColoredButton(
-                            icon: Icons.calendar_month_rounded,
-                            text: 'Book',
-                            color: mainColor,
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const BookAppointmentScreen())),
-                            size: 0.26),
+                          icon: Icons.calendar_month_rounded,
+                          text: 'Book',
+                          color: mainColor,
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  BookAppointmentScreen(property: property),
+                            ),
+                          ),
+                          size: 0.26,
+                        ),
                         ColoredButton(
-                            icon: Icons.phone,
-                            text: 'Call',
-                            color: contrastColor,
-                            onPressed: () {},
-                            size: 0.26),
+                          icon: Icons.phone,
+                          text: 'Call',
+                          color: contrastColor,
+                          onPressed: () {},
+                          size: 0.26,
+                        ),
                         ColoredButton(
-                            icon: Icons.message_rounded,
-                            color: Colors.grey,
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const ChatScreen())),
-                            size: 0.2),
+                          icon: Icons.message_rounded,
+                          color: Colors.grey,
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ChatScreen()),
+                          ),
+                          size: 0.2,
+                        ),
                       ],
                     ),
                   ],

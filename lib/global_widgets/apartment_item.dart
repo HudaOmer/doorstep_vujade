@@ -14,10 +14,12 @@ class LocationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.location_on_outlined, color: color),
+        Icon(Icons.location_on_outlined, color: color, size: 18),
         const SizedBox(width: 4),
-        Text(location, style: TextStyle(color: color, fontSize: 12)),
-        const SizedBox(width: 20),
+        Text(location,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(color: color, fontSize: 12)),
       ],
     );
   }
@@ -35,7 +37,8 @@ class ApartmentItem extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => const ApartmentDetailScreen())),
+              builder: (context) =>
+                  ApartmentDetailScreen(propertyJSON: property))),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Container(
@@ -69,8 +72,13 @@ class ApartmentItem extends StatelessWidget {
               Row(
                 children: [
                   const SizedBox(width: 5),
-                  Text(property != null ? property['title'] : 'No Title',maxLines: 2,
-                      style: const TextStyle(fontSize: 12)),
+                  SizedBox(
+                    width: isWide ? 180 : 130,
+                    child: Text(
+                        property != null ? property['title'] : 'No Title',
+                        maxLines: 1,
+                        style: const TextStyle(fontSize: 12)),
+                  ),
                 ],
               ),
               const Row(

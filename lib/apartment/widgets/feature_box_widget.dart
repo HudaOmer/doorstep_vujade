@@ -22,10 +22,12 @@ class FeatureBoxWidget extends StatelessWidget {
               style:
                   const TextStyle(fontWeight: FontWeight.w300, fontSize: 13)),
           Text(value,
+              maxLines: 1,
+              softWrap: true,
               style: const TextStyle(
                   color: Colors.grey,
                   fontWeight: FontWeight.w700,
-                  fontSize: 13)),
+                  fontSize: 10)),
         ],
       ),
     );

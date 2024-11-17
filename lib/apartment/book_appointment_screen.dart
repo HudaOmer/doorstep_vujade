@@ -1,16 +1,17 @@
-import 'package:doorstep_vujade/utils/data.dart';
 import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
-import '../home_screens/widgets/description_widget.dart';
-import '../home_screens/widgets/detail_widget.dart';
-import '../home_screens/widgets/paragraph_widget.dart';
-import '../home_screens/widgets/reviews_widget.dart';
+import '../models/property.dart';
+import 'widgets/description_widget.dart';
+import 'widgets/detail_widget.dart';
+import 'widgets/paragraph_widget.dart';
+import 'widgets/reviews_widget.dart';
 import '../utils/colors.dart';
 import '../global_widgets/custom_appbar.dart';
 import 'widgets/time_widget.dart';
 
 class BookAppointmentScreen extends StatelessWidget {
-  const BookAppointmentScreen({super.key});
+  final Property property;
+  const BookAppointmentScreen({super.key, required this.property});
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +69,11 @@ class BookAppointmentScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DetailWidget(apartment: apartment),
+                      Row(children: [DetailWidget(property: property)]),
                       const SizedBox(height: 30),
-                      ParagraphWidget(apartment: apartment),
+                      ParagraphWidget(property: property),
                       const SizedBox(height: 30),
-                      DescriptionWidget(apartment: apartment),
+                      DescriptionWidget(property: property),
                       const SizedBox(height: 30),
                       const RequestWidget(),
                       const SizedBox(height: 30),
