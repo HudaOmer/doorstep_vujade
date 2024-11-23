@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import '../../global_widgets/apartment_item.dart';
-import '../../global_widgets/custom_icon.dart';
+import 'package:doorstep_vujade/global_widgets/custom_icon.dart';
 import '../../utils/colors.dart';
+import '../../models/visit_request.dart';
 
-class ReqApatrmentItem extends StatelessWidget {
+class ReqApartmentItem extends StatelessWidget {
+  final VisitRequest visitRequest;
   final bool isFav;
-  const ReqApatrmentItem({super.key, required this.isFav});
+
+  const ReqApartmentItem(
+      {super.key, required this.visitRequest, required this.isFav});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +23,11 @@ class ReqApatrmentItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                spreadRadius: 1,
-                blurRadius: 4,
-                offset: const Offset(0, -2)),
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 1,
+              blurRadius: 4,
+              offset: const Offset(0, -2),
+            ),
           ],
         ),
         child: Row(
@@ -31,44 +35,58 @@ class ReqApatrmentItem extends StatelessWidget {
             const CustomIcon(
                 height: 80, iconName: 'assets/images/buildings.jpeg'),
             const SizedBox(width: 15),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text('AL Rayyan', style: TextStyle(fontSize: 12)),
-                    SizedBox(width: 100),
-                    Icon(Icons.close)
-                  ],
-                ),
-                const Text('9:00 AM - 10:00 AM',
-                    style: TextStyle(fontSize: 12)),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    const LocationItem(location: 'Sudan'),
-                    const SizedBox(width: 5),
-                    Icon(Icons.edit, color: mainColor),
-                    const SizedBox(width: 5),
-                    SizedBox(
-                      height: 30,
-                      child: TextButton(
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        visitRequest.visitorName, // Visitor's name
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(isFav ? Icons.favorite : Icons.favorite_border,
+                          color: mainColor),
+                    ],
+                  ),
+                  Text(
+                    visitRequest.visitDate, // Visit date
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    children: [
+                      Text('approved', style: TextStyle(color: contrastColor)),
+                      const SizedBox(width: 5),
+                      Icon(Icons.edit, color: mainColor),
+                      const SizedBox(width: 5),
+                      SizedBox(
+                        height: 30,
+                        child: TextButton(
                           onPressed: () {},
                           style: TextButton.styleFrom(
-                              backgroundColor: contrastColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5))),
-                          child: const Text('Pending',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w700))),
-                    ),
-                  ],
-                )
-              ],
+                            backgroundColor: contrastColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          ),
+                          child: const Text(
+                            'Pending',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),

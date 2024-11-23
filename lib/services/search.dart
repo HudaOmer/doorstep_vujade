@@ -23,8 +23,7 @@ class ApiService {
 
     // Check the response status and parse the JSON
     if (response.statusCode == 200) {
-      return json.decode(
-          response.body); // Assuming the response is a list of properties
+      return json.decode(response.body);
     } else {
       throw Exception('Failed to load properties: ${response.body}');
     }

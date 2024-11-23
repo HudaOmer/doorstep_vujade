@@ -55,6 +55,42 @@ class AuthService {
     }
   }
 
+  Future<bool> sendOtp(String email) async {
+    final response = await http.post(
+      Uri.parse('$baseUrl/password/forgot'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'email': email}),
+    );
+
+    return response.statusCode == 200;
+  }
+
+// is this even real?
+  Future<bool> verifyOtp(String email, String otp) async {
+    final response = await http.post(
+      Uri.parse('$baseUrl/otp/verify'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'email': email, 'otp': otp}),
+    );
+
+    return response.statusCode == 200;
+  }
+
+  Future<bool> resetPassword(String email, String password, String otp) async {
+    final response = await http.post(
+      Uri.parse('$baseUrl/password/reset'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'email': email,
+        'password': password,
+        'password_confirmation': password,
+        'token': otp,
+      }),
+    );
+
+    return response.statusCode == 200;
+  }
+
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('token'); // Remove the token on logout

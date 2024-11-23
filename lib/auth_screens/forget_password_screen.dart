@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import '../global_widgets/colored_button.dart';
 import '../global_widgets/decorated_text_field.dart';
 import '../utils/colors.dart';
-import 'edit_password_screen.dart';
-import 'login_screen.dart';
+import 'otp_screen.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
@@ -26,8 +25,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         backgroundColor: Colors.white,
         leading: GestureDetector(
             child: const Icon(Icons.arrow_back_ios),
-            onTap: () => Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()))),
+            onTap: () => Navigator.pop(context)),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -53,10 +51,10 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   text: 'Send Instructions',
                   onPressed: () {
                     _formKey.currentState!.validate();
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const EditPasswordScreen()));
+                            builder: (context) => const OTPScreen()));
                   }),
               const SizedBox(height: 40),
             ],
