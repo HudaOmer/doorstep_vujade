@@ -43,3 +43,46 @@ class Amenity {
     };
   }
 }
+// class Amenity {
+//   final int id;
+//   final String name;
+//   final String icon;
+//   final String category; // default: 'school'
+//   final String? address; // nullable
+//   final double latitude;  // Geographical coordinates
+//   final double longitude; // Geographical coordinates
+
+//   Amenity({
+//     required this.id,
+//     required this.name,
+//     required this.icon,
+//     required this.category,
+//     this.address,
+//     required this.latitude,
+//     required this.longitude,
+//   });
+
+//   factory Amenity.fromJson(Map<String, dynamic> json) {
+//     return Amenity(
+//       id: json['id'],
+//       name: json['name'],
+//       icon: json['icon'],
+//       category: json['category'],
+//       address: json['address'], // This can be null
+//       latitude: json['latitude'].toDouble(),  // Ensure it's a double
+//       longitude: json['longitude'].toDouble(), // Ensure it's a double
+//     );
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     return {
+//       'id': id,
+//       'name': name,
+//       'icon': icon,
+//       'category': category,
+//       'address': address,
+//       'latitude': latitude,
+//       'longitude': longitude,
+//     };
+//   }
+// }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
+import '../../models/property.dart';
 import '../ratings_screen.dart';
 import '../../utils/colors.dart';
 
 class ReviewsWidget extends StatelessWidget {
-  const ReviewsWidget({super.key});
+  final Property property;
+  const ReviewsWidget({super.key, required this.property});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,9 @@ class ReviewsWidget extends StatelessWidget {
                 onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const RatingsScreen())),
+                        builder: (context) => RatingsScreen(
+                            userId: property.userId!,
+                            propertyId: property.id!))),
                 child: Icon(Icons.add_box_outlined, color: mainColor))
           ],
         )

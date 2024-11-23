@@ -67,12 +67,12 @@ class _ApartmentDetailScreenState extends State<ApartmentDetailScreen> {
       backgroundColor: contrastColor,
       appBar: CustomAppBar(
         color: Colors.black26,
-        image: apartment.imageUrl, // Use property.imageUrl
+        image: apartment.imageUrl,
         arrowColor: mainColor,
         onTap: () => Navigator.pop(context),
         actions: [
           GestureDetector(
-            onTap: toggleFavorite, // Call toggleFavorite on tap
+            onTap: toggleFavorite,
             child: Icon(
               isFavorited ? Icons.favorite : Icons.favorite_outline,
               color: mainColor,
@@ -127,7 +127,7 @@ class _ApartmentDetailScreenState extends State<ApartmentDetailScreen> {
                     const SizedBox(height: 30),
                     DescriptionWidget(property: property),
                     const SizedBox(height: 30),
-                    const ReviewsWidget(),
+                    ReviewsWidget(property: property),
                     const SizedBox(height: 30),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
