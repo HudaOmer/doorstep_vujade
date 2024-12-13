@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 10),
               ColoredTextButton(
                   text: 'Forgot Password?',
-                  onPressed: () => Navigator.pushReplacement(
+                  onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const ForgetPasswordScreen()))),

@@ -57,7 +57,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const OTPScreen()));
+                            builder: (context) => const OTPScreen(email: '')));
                   }),
               const SizedBox(height: 40),
             ],

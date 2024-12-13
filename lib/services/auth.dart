@@ -56,23 +56,16 @@ class AuthService {
   }
 
   Future<bool> sendOtp(String email) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('email', email);
+    print(email);
     final response = await http.post(
       Uri.parse('$baseUrl/password/forgot'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'email': email}),
     );
 
-    return response.statusCode == 200;
-  }
-
-// is this even real?
-  Future<bool> verifyOtp(String email, String otp) async {
-    final response = await http.post(
-      Uri.parse('$baseUrl/otp/verify'),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'email': email, 'otp': otp}),
-    );
-
+    print(response.body);
     return response.statusCode == 200;
   }
 
@@ -84,11 +77,18 @@ class AuthService {
         'email': email,
         'password': password,
         'password_confirmation': password,
-        'token': otp,
+        'otp': otp,
       }),
     );
 
-    return response.statusCode == 200;
+    if (response.statusCode == 200) {
+      final user = json.decode(response.body);
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', user['token']);
+      return true; // Reset successful
+    } else {
+      return false; // Reset failed
+    }
   }
 
   Future<void> logout() async {
